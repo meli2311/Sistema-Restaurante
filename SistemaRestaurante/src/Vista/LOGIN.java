@@ -67,7 +67,7 @@ public class LOGIN extends javax.swing.JFrame {
         } else if (usuario.equals("usuario1") && paswd.equals("2468")) {
             JOptionPane.showMessageDialog(null, "Bienvenido!");
 
-            Sistema_Restaurante pc = new Sistema_Restaurante();
+           Reserva pc = new Reserva();
             pc.setVisible(true);
             this.dispose();
 

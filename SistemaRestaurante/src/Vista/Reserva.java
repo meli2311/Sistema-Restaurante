@@ -1,15 +1,7 @@
 package Vista;
 
-
-/**
- *
- * @author Yonatan
- */
 public class Reserva extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Sistema_Restaurante
-     */
     public Reserva() {
         initComponents();
         this.setLocationRelativeTo(null);

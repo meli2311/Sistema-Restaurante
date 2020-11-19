@@ -4,7 +4,7 @@ package Controlador;
 
 import Modelo.ReservaDAO;
 import Modelo.Reservas;
-import Vista.Sistema_Restaurante;
+import Vista.Reserva;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -17,12 +17,12 @@ public class Controlador implements ActionListener{
     
     Reservas res=new Reservas();
     
-    Sistema_Restaurante sisr=new Sistema_Restaurante();
+    Reserva sisr=new Reserva();
     DefaultTableModel modelo=new DefaultTableModel();
 
-    public Controlador(Sistema_Restaurante v) {
+    public Controlador(Reserva v) {
         this.sisr=v;
-        this.sisr.btnListar.addActionListener(this);
+//        this.sisr.btnListar.addActionListener(this);
         
     }
     
