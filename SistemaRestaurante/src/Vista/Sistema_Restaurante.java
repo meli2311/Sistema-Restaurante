@@ -42,7 +42,7 @@ public class Sistema_Restaurante extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
+        btnListar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
         jButton5.setText("jButton5");
@@ -106,9 +106,9 @@ public class Sistema_Restaurante extends javax.swing.JFrame {
         getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 188, 154, -1));
         getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 227, 154, -1));
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton6.setText("GUARDAR DATOS");
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 280, -1, -1));
+        btnListar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnListar.setText("GUARDAR DATOS");
+        getContentPane().add(btnListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 280, -1, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/FondoReservas1.jpg"))); // NOI18N
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 400));
@@ -152,12 +152,12 @@ public class Sistema_Restaurante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnListar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
