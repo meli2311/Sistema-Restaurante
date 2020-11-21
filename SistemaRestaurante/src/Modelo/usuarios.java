@@ -1,4 +1,3 @@
-
 package Modelo;
 
 /**
@@ -6,10 +5,10 @@ package Modelo;
  * @author Yonatan
  */
 public class usuarios {
-    
+
     private String usuario;
     private String password;
-    private String nivelacceso; 
+    private String nivelacceso;
 
     public String getUsuario() {
         return usuario;
@@ -34,6 +33,5 @@ public class usuarios {
     public void setNivelacceso(String nivelacceso) {
         this.nivelacceso = nivelacceso;
     }
-   
-    
+
 }

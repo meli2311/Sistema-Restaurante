@@ -1,64 +1,52 @@
 package Vista;
 
-
-
-
 import Modelo.Conexion;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-
-
-/**
- *
- * @author Yonatan
- */
 public class LOGIN extends javax.swing.JFrame {
 
-   Conexion cc=new Conexion();
-   Connection con=cc.getConnection();
-    
+    Conexion cc = new Conexion();
+    Connection con = cc.getConnection();
 
-    
     public LOGIN() {
         initComponents();
+        this.setLocationRelativeTo(null); 
     }
 
-   public void validarAcceso(){
-       
-       int resultado=0;
-       
-       try {
-           String usuario=jTextField1.getText();
-           String password=String.valueOf(jPasswordField1.getPassword());
-           
-           String sql="Select * from usuarios where Usuario='" +usuario+ "' and Password='"+password+"' ";
-           
-           Statement st=con.createStatement();
-           ResultSet rs=st.executeQuery(sql); 
-           
-           if(rs.next()){
-               resultado=1;
-               if (resultado==1){
-                   Sistema_Restaurante form=new Sistema_Restaurante();
-                   form.setVisible(true);
-                   this.dispose();
-               }else{
-                   
-                   JOptionPane.showMessageDialog(null, "Datos Incorrectos, Vuelve a Intentarlo");
-                   
-               }
-           }
-       }catch (Exception  e){
-           
-                  JOptionPane.showMessageDialog(null, "Error en el Acceso, Vuelve a Intentarlo" + e.getMessage());
-       }
-   }
-    
-    
+    public void validarAcceso() {
+
+        int resultado = 0;
+
+        try {
+            String usuario = jTextField1.getText();
+            String password = String.valueOf(jPasswordField1.getPassword());
+
+            String sql = "Select * from usuarios where Usuario='" + usuario + "' and Password='" + password + "' ";
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            if (rs.next()) {
+                resultado = 1;
+                if (resultado == 1) {
+                    opciones form = new opciones();
+                    form.setVisible(true);
+                    this.dispose();
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Datos Incorrectos, Vuelve a Intentarlo");
+
+                }
+            }
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "Error en el Acceso, Vuelve a Intentarlo" + e.getMessage());
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -112,33 +100,8 @@ public class LOGIN extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       validarAcceso();
-    
-
-        
-    
-//       con = new Conexion();
-//       Connection reg = con.getConnection();
-//        
-//        
-//       String usuario = jTextField1.getText();
-//       String password = jPasswordField1.getText();
-//       
-//       if(usuario.isEmpty() || password.isEmpty()){
-//           JOptionPane.showMessageDialog(null, "Llenar todos los campos");
-//           
-//       }else if (usuario.equals("") && password.equals("2468"))  {
-//        JOptionPane.showMessageDialog(null, "Bienvenido!");
-//        
-//        Sistema_Restaurante pc = new Sistema_Restaurante ();
-//        pc.setVisible(true);
-//        this.dispose ();
-//        
-//          }else{
-//               JOptionPane.showMessageDialog(null, "Su usuario o contraseña es incorrecto");
-//    }
+        validarAcceso();
     }//GEN-LAST:event_jButton1ActionPerformed
-   
 
     /**
      * @param args the command line arguments
@@ -173,8 +136,8 @@ public class LOGIN extends javax.swing.JFrame {
                 new LOGIN().setVisible(true);
             }
         });
-        }
-    
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

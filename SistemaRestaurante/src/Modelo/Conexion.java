@@ -11,7 +11,7 @@ public class Conexion {
     private String hostname = "localhost";
     private String port = "3306";
     private String database = "Sistema_restaurante";
-private String classname = "com.mysql.jdbc.Driver";
+    private String classname = "com.mysql.jdbc.Driver";
     private String url = "jdbc:mysql://" + hostname + ":" + port + "/" + database;
     private Connection con;
 
@@ -32,5 +32,4 @@ private String classname = "com.mysql.jdbc.Driver";
         return con;
     }
 
-   
 }
