@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class Sqlusuarios extends Conexion {
     
     
-   public int existeusuario (String usuario) throws SQLException {
+   public int existeusuario (String usuario) {
        
        PreparedStatement ps = null;
        ResultSet rs = null;
