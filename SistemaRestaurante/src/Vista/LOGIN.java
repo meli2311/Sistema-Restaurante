@@ -1,14 +1,51 @@
 package Vista;
 
+import Modelo.Conexion;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class LOGIN extends javax.swing.JFrame {
 
+    Conexion cc = new Conexion();
+    Connection con = cc.getConnection();
+
     public LOGIN() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null); 
     }
 
+    public void validarAcceso() {
+
+        int resultado = 0;
+
+        try {
+            String usuario = jTextField1.getText();
+            String password = String.valueOf(jPasswordField1.getPassword());
+
+            String sql = "Select * from usuarios where Usuario='" + usuario + "' and Password='" + password + "' ";
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            if (rs.next()) {
+                resultado = 1;
+                if (resultado == 1) {
+                    opciones form = new opciones();
+                    form.setVisible(true);
+                    this.dispose();
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Datos Incorrectos, Vuelve a Intentarlo");
+
+                }
+            }
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "Error en el Acceso, Vuelve a Intentarlo" + e.getMessage());
+        }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -20,7 +57,7 @@ public class LOGIN extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,15 +78,20 @@ public class LOGIN extends javax.swing.JFrame {
         jLabel3.setText("CONTRASEÑA :");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 130, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 130, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("INGRESAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/cooking.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 130, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/ingreso1.jpeg"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 420, 460));
@@ -58,24 +100,8 @@ public class LOGIN extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String usuario = jTextField1.getText();
-        String paswd = jTextField2.getText();
-
-        if (usuario.isEmpty() || paswd.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Llenar todos los campos");
-
-        } else if (usuario.equals("usuario1") && paswd.equals("2468")) {
-            JOptionPane.showMessageDialog(null, "Bienvenido!");
-
-           Reserva pc = new Reserva();
-            pc.setVisible(true);
-            this.dispose();
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Su usuario o contraseña es incorrecto");
-        }
+        validarAcceso();
     }//GEN-LAST:event_jButton1ActionPerformed
-
 
     /**
      * @param args the command line arguments
@@ -84,7 +110,7 @@ public class LOGIN extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -119,7 +145,7 @@ public class LOGIN extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

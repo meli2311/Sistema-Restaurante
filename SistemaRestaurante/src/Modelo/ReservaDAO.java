@@ -43,5 +43,33 @@ public class ReservaDAO {
         return datos;
 
     }
+    
+    
+    public int agregar (Reservas r){
+    
+        String sql="INSERT INTO reserva (Nombre_Cliente, DNI, email, Telefono, fecha_hora, numero_mesa) VALUES (?,?,?,?,?,?); ";
+        
+        try {
+            
+            con=conexion.getConnection();
+            ps=con.prepareStatement(sql);
+            ps.setString(1, r.getNombre_cliente());
+            ps.setInt(1, r.getDNI());
+            ps.setString(1, r.getEmail());
+            ps.setInt(1, r.getTelefono());
+            ps.setDate(1, r.getFecha_hora());
+            ps.setInt(1, r.getNumero_mesa());
+            ps.executeUpdate();
+
+            
+            
+        } catch (Exception e) {
+        }
+    
+    
+    return 1;
+    
+    }
+    
 
 }

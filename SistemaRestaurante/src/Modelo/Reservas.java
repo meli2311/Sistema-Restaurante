@@ -2,16 +2,15 @@ package Modelo;
 
 import java.sql.Date;
 
-
 public class Reservas {
-    
+
     private int id_Reserva;
     private String Nombre_cliente;
     private int DNI;
     private String email;
     private int telefono;
     private Date fecha_hora;
-    private int  numero_mesa; 
+    private int numero_mesa;
 
     public Reservas() {
     }
@@ -26,7 +25,6 @@ public class Reservas {
         this.numero_mesa = numero_mesa;
     }
 
-    
     public int getId_Reserva() {
         return id_Reserva;
     }
@@ -82,9 +80,5 @@ public class Reservas {
     public void setNumero_mesa(int numero_mesa) {
         this.numero_mesa = numero_mesa;
     }
-    
-    
-    
-    
-    
+
 }
