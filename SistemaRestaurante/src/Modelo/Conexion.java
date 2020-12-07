@@ -6,10 +6,14 @@ import java.sql.SQLException;
 
 public class Conexion {
 
+    public static Connection conectar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     private String username = "root";
     private String pasword = "";
     private String hostname = "localhost";
-    private String port = "3306";
+    private String port = "3308";
     private String database = "Sistema_restaurante";
     private String classname = "com.mysql.jdbc.Driver";
     private String url = "jdbc:mysql://" + hostname + ":" + port + "/" + database;
