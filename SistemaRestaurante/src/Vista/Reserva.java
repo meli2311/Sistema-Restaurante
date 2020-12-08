@@ -16,6 +16,7 @@ public class Reserva extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
@@ -133,7 +134,6 @@ public class Reserva extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Operaciones"));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/agregar1.png"))); // NOI18N
@@ -182,7 +182,6 @@ public class Reserva extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Tabla1.setBackground(new java.awt.Color(255, 255, 255));
         Tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -216,7 +215,7 @@ public class Reserva extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-       
+
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
@@ -234,9 +233,9 @@ public class Reserva extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         Reserva r=new Reserva();
-        
+
         Controlador c=new Controlador(r);
         r.setVisible(true);
 

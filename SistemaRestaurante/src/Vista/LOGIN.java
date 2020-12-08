@@ -2,6 +2,7 @@ package Vista;
 
 import Modelo.Conexion;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -11,35 +12,63 @@ public class LOGIN extends javax.swing.JFrame {
     Conexion cc = new Conexion();
     Connection con = cc.getConnection();
 
+
+
     public LOGIN() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    public void validarAcceso() {
+    public void validarAcceso(String usuario, String password) {
 
-        int resultado = 0;
+        int niveldeacceso = 0;
+         PreparedStatement ps;
+         ResultSet rs;
 
         try {
-            String usuario = jTextField1.getText();
-            String password = String.valueOf(jPasswordField1.getPassword());
+//
 
-            String sql = "Select * from usuarios where Usuario='" + usuario + "' and Password='" + password + "' ";
+            String sql = "Select * from usuarios where Usuario='" + usuario + "' and Password='" + password + "'";
 
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery(sql);
+             ps = con.prepareStatement(sql);
+             rs = ps.executeQuery();
 
             if (rs.next()) {
-                resultado = 1;
-                if (resultado == 1) {
-                    opciones form = new opciones();
-                    form.setVisible(true);
-                    this.dispose();
+
+                usuario = rs.getString("Usuario");
+                password = rs.getString("Password");
+
+                if  (usuario != null  && password !=null) {
+
+                    niveldeacceso=rs.getInt("Level_Acces");
+
+                    switch (niveldeacceso){
+
+                        case 1:
+                             opciones form = new opciones();
+                             form.setVisible(true);
+                             this.dispose();
+                             break;
+
+                        case 2:
+                             opciones1 form1 =new opciones1();
+                             form1.setVisible(true);
+                             this.dispose();
+                             break;
+                    }
+
+
+
+                    }
+
+            }
+
+
+            else {
+
+                    JOptionPane.showMessageDialog(null, "Datos Incorrectos, Vuelve a Intentarlo");
 
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Datos Incorrectos, Vuelve a Intentarlo");
-            }
         } catch (Exception e) {
 
             JOptionPane.showMessageDialog(null, "Error en el Acceso, Vuelve a Intentarlo" + e.getMessage());
@@ -99,7 +128,10 @@ public class LOGIN extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        validarAcceso();
+        String usuario = jTextField1.getText();
+        String password = String.valueOf(jPasswordField1.getPassword());
+        validarAcceso(usuario, password);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -109,7 +141,7 @@ public class LOGIN extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
