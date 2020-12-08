@@ -24,17 +24,14 @@ primary key  (id_Presupuesto)
 drop table if exists Reserva;
 create table Reserva(
 id_Reserva int(10) not null auto_increment,
-Nombre_Cliente int(10) not null,
+Nombre_Cliente varchar(50) not null,
 DNI int(8) not null,
 email varchar(50) not null,
 Telefono int(9) not null,
-hora datetime not null,
-fecha date not null,
+fecha_hora date not null,
 numero_mesa int(50) not null,
 primary key  (id_Reserva)
 );
-
-
 
 
 

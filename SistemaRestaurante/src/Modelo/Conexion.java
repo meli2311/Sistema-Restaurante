@@ -9,7 +9,7 @@ public class Conexion {
     private String username = "root";
     private String pasword = "";
     private String hostname = "localhost";
-    private String port = "3306";
+    private String port = "3308";
     private String database = "Sistema_restaurante";
     private String classname = "com.mysql.jdbc.Driver";
     private String url = "jdbc:mysql://" + hostname + ":" + port + "/" + database;

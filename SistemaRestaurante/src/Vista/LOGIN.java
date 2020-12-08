@@ -13,7 +13,7 @@ public class LOGIN extends javax.swing.JFrame {
 
     public LOGIN() {
         initComponents();
-        this.setLocationRelativeTo(null); 
+        this.setLocationRelativeTo(null);
     }
 
     public void validarAcceso() {
@@ -35,11 +35,10 @@ public class LOGIN extends javax.swing.JFrame {
                     opciones form = new opciones();
                     form.setVisible(true);
                     this.dispose();
-                } else {
-
-                    JOptionPane.showMessageDialog(null, "Datos Incorrectos, Vuelve a Intentarlo");
 
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "Datos Incorrectos, Vuelve a Intentarlo");
             }
         } catch (Exception e) {
 

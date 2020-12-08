@@ -9,13 +9,13 @@ public class Reservas {
     private int DNI;
     private String email;
     private int telefono;
-    private Date fecha_hora;
+    private String fecha_hora;
     private int numero_mesa;
 
     public Reservas() {
     }
 
-    public Reservas(int id_Reserva, String Nombre_cliente, int DNI, String email, int telefono, Date fecha_hora, int numero_mesa) {
+    public Reservas(int id_Reserva, String Nombre_cliente, int DNI, String email, int telefono, String fecha_hora, int numero_mesa) {
         this.id_Reserva = id_Reserva;
         this.Nombre_cliente = Nombre_cliente;
         this.DNI = DNI;
@@ -65,11 +65,11 @@ public class Reservas {
         this.telefono = telefono;
     }
 
-    public Date getFecha_hora() {
+    public String getFecha_hora() {
         return fecha_hora;
     }
 
-    public void setFecha_hora(Date fecha_hora) {
+    public void setFecha_hora(String fecha_hora) {
         this.fecha_hora = fecha_hora;
     }
 
