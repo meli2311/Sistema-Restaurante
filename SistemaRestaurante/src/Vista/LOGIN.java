@@ -1,10 +1,12 @@
 package Vista;
 
 import Modelo.Conexion;
+import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class LOGIN extends javax.swing.JFrame {
@@ -12,65 +14,43 @@ public class LOGIN extends javax.swing.JFrame {
     Conexion cc = new Conexion();
     Connection con = cc.getConnection();
 
-
-
     public LOGIN() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
     public void validarAcceso(String usuario, String password) {
-
         int niveldeacceso = 0;
-         PreparedStatement ps;
-         ResultSet rs;
-
+        PreparedStatement ps;
+        ResultSet rs;
         try {
-//
-
             String sql = "Select * from usuarios where Usuario='" + usuario + "' and Password='" + password + "'";
-
-             ps = con.prepareStatement(sql);
-             rs = ps.executeQuery();
-
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
             if (rs.next()) {
-
                 usuario = rs.getString("Usuario");
                 password = rs.getString("Password");
-
-                if  (usuario != null  && password !=null) {
-
-                    niveldeacceso=rs.getInt("Level_Acces");
-
-                    switch (niveldeacceso){
+                if (usuario != null && password != null) {
+                    niveldeacceso = rs.getInt("Level_Acces");
+                    switch (niveldeacceso) {
 
                         case 1:
-                             opciones form = new opciones();
-                             form.setVisible(true);
-                             this.dispose();
-                             break;
+                            opciones form = new opciones();
+                            form.setVisible(true);
+                            this.dispose();
+                            break;
 
                         case 2:
-                             opciones1 form1 =new opciones1();
-                             form1.setVisible(true);
-                             this.dispose();
-                             break;
+                            opciones1 form1 = new opciones1();
+                            form1.setVisible(true);
+                            this.dispose();
+                            break;
                     }
-
-
-
-                    }
-
-            }
-
-
-            else {
-
-                    JOptionPane.showMessageDialog(null, "Datos Incorrectos, Vuelve a Intentarlo");
-
                 }
-        } catch (Exception e) {
-
+            } else {
+                JOptionPane.showMessageDialog(null, "Datos Incorrectos, Vuelve a Intentarlo");
+            }
+        } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Error en el Acceso, Vuelve a Intentarlo" + e.getMessage());
         }
     }
@@ -115,10 +95,21 @@ public class LOGIN extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/cooking.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
+
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 130, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/ingreso1.jpeg"))); // NOI18N
@@ -133,6 +124,20 @@ public class LOGIN extends javax.swing.JFrame {
         validarAcceso(usuario, password);
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+
+    }//GEN-LAST:event_jButton1KeyPressed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String usuario = jTextField1.getText();
+            String password = String.valueOf(jPasswordField1.getPassword());
+            validarAcceso(usuario, password);
+
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**
      * @param args the command line arguments

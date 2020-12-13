@@ -33,7 +33,10 @@ numero_mesa int(50) not null,
 primary key  (id_Reserva)
 );
 
-
+create table mesa(
+id_Mesa varchar(20) not null,
+primary key (id_Mesa)
+);
 
 
 

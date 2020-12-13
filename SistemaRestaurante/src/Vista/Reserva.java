@@ -1,13 +1,13 @@
 package Vista;
 
-import Controlador.Controlador;
-
 public class Reserva extends javax.swing.JFrame {
 
     public Reserva() {
         initComponents();
         this.setLocationRelativeTo(null);
+
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -16,9 +16,10 @@ public class Reserva extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtDNI = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -75,8 +76,8 @@ public class Reserva extends javax.swing.JFrame {
         jLabel2.setText("Id:");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        txtID.setEditable(false);
-        jPanel4.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 130, -1));
+        txtId.setEditable(false);
+        jPanel4.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 130, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -107,7 +108,7 @@ public class Reserva extends javax.swing.JFrame {
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, -1, -1));
         jPanel4.add(txtMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 130, -1));
 
-        txtFecha.setDateFormatString("yyyy/MM/dd HH:mm:ss");
+        txtFecha.setDateFormatString("yyyy/MM/dd");
         jPanel4.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 210, -1));
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/icon_chek2.jpeg"))); // NOI18N
@@ -233,10 +234,16 @@ public class Reserva extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
 
-        Reserva r=new Reserva();
+        java.awt.EventQueue.invokeLater(new Runnable() {
 
-        Controlador c=new Controlador(r);
-        r.setVisible(true);
+            public void run() {
+                new Reserva().setVisible(true);
+
+            }
+        });
+//        Reserva r = new Reserva();
+//        Controlador c = new Controlador(r);
+//        r.setVisible(true);
 
     }
 
@@ -251,6 +258,7 @@ public class Reserva extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -269,7 +277,7 @@ public class Reserva extends javax.swing.JFrame {
     public javax.swing.JTextField txtDNI;
     public javax.swing.JTextField txtEmail;
     public com.toedter.calendar.JDateChooser txtFecha;
-    public javax.swing.JTextField txtID;
+    public javax.swing.JTextField txtId;
     public javax.swing.JTextField txtMesa;
     public javax.swing.JTextField txtNombre;
     public javax.swing.JTextField txtTelefono;

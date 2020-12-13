@@ -70,7 +70,8 @@ public class ReservaDAO {
 
     public int Actualizar(Reservas r) {
         int respuesta = 0;
-        String sql = "update Reserva set Nombre_Cliente=?, DNI=?, email=?, Telefono=?, fehca_hora=?, numero_mesa=? where id_Reserva=? ;";
+        String sql = "UPDATE reserva SET Nombre_Cliente = ?, DNI = ?, email = ?, Telefono = ?, fecha_hora = ?, numero_mesa = ? WHERE (id_Reserva = ?);";
+        
         try {
             con = conexion.getConnection();
             ps = con.prepareStatement(sql);

@@ -55,7 +55,7 @@ public class Controlador implements ActionListener {
                 int telefono = Integer.parseInt((String) reser.Tabla1.getValueAt(fila, 4).toString());
                 String fecha_hora = (String) reser.Tabla1.getValueAt(fila, 5);
                 int numero_mesa = Integer.parseInt((String) reser.Tabla1.getValueAt(fila, 6).toString());
-                reser.txtID.setText("" + id);
+                reser.txtId.setText("" + id);
                 reser.txtNombre.setText(nom);
                 reser.txtDNI.setText("" + dni);
                 reser.txtEmail.setText(email);
@@ -82,6 +82,14 @@ public class Controlador implements ActionListener {
 
     }
 
+    public void LimpiarTabla() {
+        for (int i = 0; i < reser.Tabla1.getRowCount(); i++) {
+            modelo.removeRow(i);
+            i = i - 1;
+        }
+
+    }
+
     public void eliminar() {
         int fila = reser.Tabla1.getSelectedRow();
 
@@ -97,7 +105,7 @@ public class Controlador implements ActionListener {
     }
 
     public void Actualizar() {
-        int id = Integer.parseInt(reser.txtID.getText());
+        int id = Integer.parseInt(reser.txtId.getText());
         String nom = reser.txtNombre.getText();
         int dni = Integer.parseInt(reser.txtDNI.getText());
         String email = reser.txtEmail.getText();
@@ -111,19 +119,11 @@ public class Controlador implements ActionListener {
         res.setTelefono(telefono);
         res.setFecha_hora(Fecha);
         res.setNumero_mesa(N_Mesa);
-        int r = dao.Actualizar(res);
-        if (r == 1) {
+        int re = dao.Actualizar(res);
+        if (re == 1) {
             JOptionPane.showMessageDialog(reser, "Reserva Actualizada con exito");
         } else {
             JOptionPane.showMessageDialog(reser, "error");
-        }
-
-    }
-
-    public void LimpiarTabla() {
-        for (int i = 0; i < reser.Tabla1.getRowCount(); i++) {
-            modelo.removeRow(i);
-            i = i - 1;
         }
 
     }
@@ -142,7 +142,6 @@ public class Controlador implements ActionListener {
         res.setFecha_hora(Fecha);
         res.setNumero_mesa(N_Mesa);
         int r = dao.agregar(res);
-
         if (r == 1) {
             JOptionPane.showMessageDialog(reser, "Reserva registrado con exito");
         } else {
