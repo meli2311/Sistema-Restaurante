@@ -5,10 +5,10 @@ import Modelo.Reservas;
 import Vista.Reserva;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class ControladorRes implements ActionListener {
@@ -24,6 +24,10 @@ public class ControladorRes implements ActionListener {
         this.reser = r;
         this.reser.btnListar.addActionListener(this);
         this.reser.btnAgregar.addActionListener(this);
+        this.reser.btnAceptar.addActionListener(this);
+        this.reser.btnEditar.addActionListener(this);
+        this.reser.btnEliminar.addActionListener(this);
+        listar(reser.Tabla1);
 
     }
 
@@ -31,11 +35,95 @@ public class ControladorRes implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == reser.btnListar) {
+            LimpiarTabla();
             listar(reser.Tabla1);
         }
-        if (e.getSource()==reser.btnAgregar) {
+        if (e.getSource() == reser.btnAgregar) {
             agregar();
-            
+            LimpiarTabla();
+            listar(reser.Tabla1);
+        }
+        if (e.getSource() == reser.btnEditar) {
+            int fila = reser.Tabla1.getSelectedRow();
+            if (fila == -1) {
+                JOptionPane.showMessageDialog(reser, "Debe seleccionar una fila");
+            } else {
+                int id = Integer.parseInt((String) reser.Tabla1.getValueAt(fila, 0).toString());
+                String nom = (String) reser.Tabla1.getValueAt(fila, 1);
+                int dni = Integer.parseInt((String) reser.Tabla1.getValueAt(fila, 2).toString());
+                String email = (String) reser.Tabla1.getValueAt(fila, 3);
+                int telefono = Integer.parseInt((String) reser.Tabla1.getValueAt(fila, 4).toString());
+                String fecha_hora = (String) reser.Tabla1.getValueAt(fila, 5);
+                int numero_mesa = Integer.parseInt((String) reser.Tabla1.getValueAt(fila, 6).toString());
+                reser.txtId.setText("" + id);
+                reser.txtNombre.setText(nom);
+                reser.txtDNI.setText("" + dni);
+                reser.txtEmail.setText(email);
+                reser.txtTelefono.setText("" + telefono);
+                ((JTextField) reser.txtFecha.getDateEditor().getUiComponent()).setText(fecha_hora);
+                reser.txtMesa.setText("" + numero_mesa);
+
+            }
+
+        }
+        if (e.getSource() == reser.btnAceptar) {
+
+            Actualizar();
+            LimpiarTabla();
+            listar(reser.Tabla1);
+        }
+
+        if (e.getSource() == reser.btnEliminar) {
+            eliminar();
+            LimpiarTabla();
+            listar(reser.Tabla1);
+
+        }
+
+    }
+
+    public void LimpiarTabla() {
+        for (int i = 0; i < reser.Tabla1.getRowCount(); i++) {
+            modelo.removeRow(i);
+            i = i - 1;
+        }
+
+    }
+
+    public void eliminar() {
+        int fila = reser.Tabla1.getSelectedRow();
+
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(reser, "Debe seleccionar una fila");
+        } else {
+            int id = Integer.parseInt((String) reser.Tabla1.getValueAt(fila, 0).toString());
+            dao.eliminar(id);
+            JOptionPane.showMessageDialog(reser, "Usuario eliminado correcatamente");
+
+        }
+
+    }
+
+    public void Actualizar() {
+        int id = Integer.parseInt(reser.txtId.getText());
+        String nom = reser.txtNombre.getText();
+        int dni = Integer.parseInt(reser.txtDNI.getText());
+        String email = reser.txtEmail.getText();
+        int telefono = Integer.parseInt(reser.txtTelefono.getText());
+        String Fecha = ((JTextField) reser.txtFecha.getDateEditor().getUiComponent()).getText();
+        int N_Mesa = Integer.parseInt(reser.txtMesa.getText());
+        res.setId_Reserva(id);
+        res.setNombre_cliente(nom);
+        res.setDNI(dni);
+        res.setEmail(email);
+        res.setTelefono(telefono);
+        res.setFecha_hora(Fecha);
+        res.setNumero_mesa(N_Mesa);
+        int re = dao.Actualizar(res);
+        if (re == 1) {
+            JOptionPane.showMessageDialog(reser, "Reserva Actualizada con exito");
+        } else {
+            JOptionPane.showMessageDialog(reser, "error");
         }
 
     }
@@ -45,7 +133,7 @@ public class ControladorRes implements ActionListener {
         int dni = Integer.parseInt(reser.txtDNI.getText());
         String email = reser.txtEmail.getText();
         int telefono = Integer.parseInt(reser.txtTelefono.getText());
-        Date Fecha = (Date) reser.txtFecha.getDate();
+        String Fecha = ((JTextField) reser.txtFecha.getDateEditor().getUiComponent()).getText();
         int N_Mesa = Integer.parseInt(reser.txtMesa.getText());
         res.setNombre_cliente(nom);
         res.setDNI(dni);
@@ -53,15 +141,12 @@ public class ControladorRes implements ActionListener {
         res.setTelefono(telefono);
         res.setFecha_hora(Fecha);
         res.setNumero_mesa(N_Mesa);
-        int r=dao.agregar(res);
-        
-        if (r==1) {
+        int r = dao.agregar(res);
+        if (r == 1) {
             JOptionPane.showMessageDialog(reser, "Reserva registrado con exito");
         } else {
             JOptionPane.showMessageDialog(reser, "Ocurrio un error");
         }
-        
-        
 
     }
 

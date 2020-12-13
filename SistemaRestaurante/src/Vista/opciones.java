@@ -1,19 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Vista;
 
-/**
- *
- * @author Sammy Guergachi <sguergachi at gmail.com>
- */
+import Controlador.Controlador;
+import Controlador.ControladorP;
+
+
 public class opciones extends javax.swing.JFrame {
 
-    /**
-     * Creates new form opciones
-     */
     public opciones() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -29,11 +22,12 @@ public class opciones extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnReserva = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
+        btnPedido = new javax.swing.JButton();
+        btnFactura = new javax.swing.JButton();
+        btnFinanzas = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,35 +36,68 @@ public class opciones extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/reserva1.png"))); // NOI18N
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 150));
+        btnReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/reserva1.png"))); // NOI18N
+        btnReserva.setBorderPainted(false);
+        btnReserva.setContentAreaFilled(false);
+        btnReserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReservaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 150));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/menu1.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 140, 150));
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/menu1.png"))); // NOI18N
+        btnMenu.setBorderPainted(false);
+        btnMenu.setContentAreaFilled(false);
+        btnMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 140, 150));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/pedido2.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 150, 140));
+        btnPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/pedido2.png"))); // NOI18N
+        btnPedido.setBorderPainted(false);
+        btnPedido.setContentAreaFilled(false);
+        btnPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPedidoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 150, 140));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/factura.png"))); // NOI18N
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 140, 150));
+        btnFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/factura.png"))); // NOI18N
+        btnFactura.setBorderPainted(false);
+        btnFactura.setContentAreaFilled(false);
+        btnFactura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFacturaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 140, 150));
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/estadistica2.png"))); // NOI18N
-        jButton6.setBorderPainted(false);
-        jButton6.setContentAreaFilled(false);
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 140, 140));
+        btnFinanzas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/estadistica2.png"))); // NOI18N
+        btnFinanzas.setBorderPainted(false);
+        btnFinanzas.setContentAreaFilled(false);
+        btnFinanzas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinanzas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinanzasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFinanzas, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 140, 140));
+
+        jButton5.setText("SALIR");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/opciones.jpeg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 430));
@@ -80,47 +107,63 @@ public class opciones extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaActionPerformed
+        Reserva r = new Reserva();
+        Controlador c = new Controlador(r);
+        r.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnReservaActionPerformed
+
+    private void btnFinanzasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinanzasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFinanzasActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        menu m = new menu();
+
+        m.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidoActionPerformed
+        Ganancias g = new Ganancias();
+        ControladorP cp = new ControladorP(g);
+        g.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnPedidoActionPerformed
+
+    private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
+        Factura f = new Factura();
+        f.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnFacturaActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(opciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(opciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(opciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(opciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new opciones().setVisible(true);
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btnFactura;
+    private javax.swing.JButton btnFinanzas;
+    private javax.swing.JButton btnMenu;
+    private javax.swing.JButton btnPedido;
+    private javax.swing.JButton btnReserva;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
