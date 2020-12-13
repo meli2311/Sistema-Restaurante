@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class Controlador implements ActionListener {
+public class ControladorRes implements ActionListener {
 
     ReservaDAO dao = new ReservaDAO();
 
@@ -20,7 +20,7 @@ public class Controlador implements ActionListener {
     Reserva reser = new Reserva();
     DefaultTableModel modelo = new DefaultTableModel();
 
-    public Controlador(Reserva r) {
+    public ControladorRes(Reserva r) {
         this.reser = r;
         this.reser.btnListar.addActionListener(this);
         this.reser.btnAgregar.addActionListener(this);

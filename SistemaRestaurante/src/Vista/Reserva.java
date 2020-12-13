@@ -1,6 +1,6 @@
 package Vista;
 
-import Controlador.Controlador;
+import Controlador.ControladorRes;
 
 public class Reserva extends javax.swing.JFrame {
 
@@ -187,7 +187,7 @@ public class Reserva extends javax.swing.JFrame {
         
         Reserva r=new Reserva();
         
-        Controlador c=new Controlador(r);
+        ControladorRes c=new ControladorRes(r);
         r.setVisible(true);
 
     }
