@@ -100,9 +100,7 @@ public class Reserva extends javax.swing.JFrame {
         jLabel8.setText("N de mesa:");
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
         jPanel4.add(txtMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 130, -1));
-
-        txtFecha.setDateFormatString(" yyyy-MM-dd");
-        jPanel4.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 140, -1));
+        jPanel4.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 130, -1));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 510, 150));
 

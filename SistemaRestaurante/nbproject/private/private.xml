@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Renzi/Desktop/Trabajos%20Renzo/Trabajo%20integrador%20grupal/Sistema/SistemaRestaurante/src/Modelo/Reservas.java</file>
-            <file>file:/C:/Users/Renzi/Desktop/Trabajos%20Renzo/Trabajo%20integrador%20grupal/Sistema/SistemaRestaurante/src/Modelo/ReservaDAO.java</file>
-            <file>file:/C:/Users/Renzi/Desktop/Trabajos%20Renzo/Trabajo%20integrador%20grupal/Sistema/SistemaRestaurante/src/Vista/Reserva.java</file>
-            <file>file:/C:/Users/Renzi/Desktop/Trabajos%20Renzo/Trabajo%20integrador%20grupal/Sistema/SistemaRestaurante/src/Vista/LOGIN.java</file>
-            <file>file:/C:/Users/Renzi/Desktop/Trabajos%20Renzo/Trabajo%20integrador%20grupal/Sistema/SistemaRestaurante/src/Controlador/Controlador.java</file>
+            <file>file:/D:/Clases%20Meli/Web%20Integrado/Sistema%20restaurante/Sistema-Restaurante/SistemaRestaurante/src/Vista/MantMesas.java</file>
+            <file>file:/D:/Clases%20Meli/Web%20Integrado/Sistema%20restaurante/Sistema-Restaurante/SistemaRestaurante/src/Vista/Reserva.java</file>
+            <file>file:/D:/Clases%20Meli/Web%20Integrado/Sistema%20restaurante/Sistema-Restaurante/SistemaRestaurante/src/Vista/menu.java</file>
+            <file>file:/D:/Clases%20Meli/Web%20Integrado/Sistema%20restaurante/Sistema-Restaurante/SistemaRestaurante/src/Vista/Factura.java</file>
+            <file>file:/D:/Clases%20Meli/Web%20Integrado/Sistema%20restaurante/Sistema-Restaurante/SistemaRestaurante/src/Vista/MantMoso.java</file>
+            <file>file:/D:/Clases%20Meli/Web%20Integrado/Sistema%20restaurante/Sistema-Restaurante/SistemaRestaurante/src/Vista/LOGIN.java</file>
+            <file>file:/D:/Clases%20Meli/Web%20Integrado/Sistema%20restaurante/Sistema-Restaurante/SistemaRestaurante/src/Vista/estadisticas.java</file>
+            <file>file:/D:/Clases%20Meli/Web%20Integrado/Sistema%20restaurante/Sistema-Restaurante/SistemaRestaurante/src/Vista/Ganancias.java</file>
+            <file>file:/D:/Clases%20Meli/Web%20Integrado/Sistema%20restaurante/Sistema-Restaurante/SistemaRestaurante/src/Vista/opciones.java</file>
+            <file>file:/D:/Clases%20Meli/Web%20Integrado/Sistema%20restaurante/Sistema-Restaurante/SistemaRestaurante/src/Vista/ordenMenu.java</file>
+            <file>file:/D:/Clases%20Meli/Web%20Integrado/Sistema%20restaurante/Sistema-Restaurante/SistemaRestaurante/src/Vista/MantStock.java</file>
         </group>
     </open-files>
 </project-private>
