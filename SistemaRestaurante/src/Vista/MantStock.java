@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import Controlador.ControladorStock;
+import Modelo.Stock;
+
 /**
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
@@ -46,12 +49,13 @@ public class MantStock extends javax.swing.JFrame {
         btnAñadir = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tablaStock.setForeground(new java.awt.Color(255, 255, 255));
+        tablaStock.setForeground(new java.awt.Color(0, 0, 0));
         tablaStock.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -107,6 +111,7 @@ public class MantStock extends javax.swing.JFrame {
         getContentPane().add(txtDescrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 100, -1));
         getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 100, -1));
 
+        txtId.setEditable(false);
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdActionPerformed(evt);
@@ -136,6 +141,9 @@ public class MantStock extends javax.swing.JFrame {
         btnAceptar.setText("Aceptar");
         getContentPane().add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
 
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/atras (2).png"))); // NOI18N
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/stock.jpeg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 630, 450));
 
@@ -150,43 +158,18 @@ public class MantStock extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MantStock.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MantStock.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MantStock.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MantStock.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MantStock().setVisible(true);
-            }
-        });
+        MantStock ms = new MantStock();
+       ControladorStock cs = new ControladorStock(ms);
+       ms.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptar;
-    private javax.swing.JButton btnAñadir;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnAceptar;
+    public javax.swing.JButton btnAñadir;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnModificar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -196,11 +179,11 @@ public class MantStock extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tablaStock;
-    private javax.swing.JTextField txtCant;
-    private javax.swing.JTextField txtDescrip;
+    public javax.swing.JTable tablaStock;
+    public javax.swing.JTextField txtCant;
+    public javax.swing.JTextField txtDescrip;
     public javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPrecio;
+    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 }

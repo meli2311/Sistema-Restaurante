@@ -31,7 +31,7 @@ public class menu extends javax.swing.JFrame {
         jComboBox6 = new javax.swing.JComboBox<>();
         jComboBox7 = new javax.swing.JComboBox<>();
         jComboBox8 = new javax.swing.JComboBox<>();
-        btnMenu = new javax.swing.JLabel();
+        btnMenu1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -89,27 +89,17 @@ public class menu extends javax.swing.JFrame {
 
         jComboBox4.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox4.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        jComboBox4.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox4ItemStateChanged(evt);
-            }
-        });
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
-            }
-        });
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         getContentPane().add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, -1));
 
         jComboBox5.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox5.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         getContentPane().add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, -1, -1));
 
         jComboBox6.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox6.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         getContentPane().add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, 40, -1));
 
         jComboBox7.setBackground(new java.awt.Color(255, 255, 255));
@@ -122,12 +112,12 @@ public class menu extends javax.swing.JFrame {
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         getContentPane().add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 450, 40, 20));
 
-        btnMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnMenuMouseClicked(evt);
+                btnMenu1MouseClicked(evt);
             }
         });
-        getContentPane().add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 150, 60));
+        getContentPane().add(btnMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 150, 60));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/comidas1.jpeg"))); // NOI18N
@@ -148,7 +138,7 @@ public class menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void btnMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         ordenMenu1 o=new ordenMenu1();
         o.setVisible(true);
 //        this.dispose();
@@ -199,6 +189,7 @@ public class menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnMenu1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -208,7 +199,6 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

@@ -1,8 +1,8 @@
 
 package Vista;
 
-import Controlador.Controlador;
 import Controlador.ControladorP;
+import Controlador.ControladorRes;
 
 
 public class opciones extends javax.swing.JFrame {
@@ -109,7 +109,7 @@ public class opciones extends javax.swing.JFrame {
 
     private void btnReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaActionPerformed
         Reserva r = new Reserva();
-        Controlador c = new Controlador(r);
+        ControladorRes c = new ControladorRes(r);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnReservaActionPerformed

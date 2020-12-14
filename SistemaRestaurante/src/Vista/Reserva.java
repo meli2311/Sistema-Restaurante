@@ -168,6 +168,11 @@ public class Reserva extends javax.swing.JFrame {
         btnEditar.setBorderPainted(false);
         btnEditar.setContentAreaFilled(false);
         btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 50, 50));
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesIconos/eliminar1.png"))); // NOI18N
@@ -228,6 +233,10 @@ public class Reserva extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_btnCloseActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
      * @param args the command line arguments
